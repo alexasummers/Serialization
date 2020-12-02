@@ -16,7 +16,4 @@ public class Example1 : MonoBehaviour
 
     public static int publicStaticInt = 234;
 
-    public const int publicConstInt = 10;
-
-    public readonly int publicReadonlyInt = 56;
 }
