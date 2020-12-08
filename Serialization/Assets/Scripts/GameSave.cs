@@ -17,9 +17,9 @@ public class GameSave : MonoBehaviour
             SavePosition s = JsonUtility.FromJson<SavePosition> (p);
             if (s!= null) {
                 Vector3 position = new Vector3();
-                position.x = s.x;
-                position.y = s.y;
-                position.z = s.z;
+                position.x = (Random.value -0.5f) * s.x;
+                position.y = (Random.value -0.5f) * s.y;
+                position.z = (Random.value -0.5f) * s.z;
                 player.transform.position = position;
             }
         }

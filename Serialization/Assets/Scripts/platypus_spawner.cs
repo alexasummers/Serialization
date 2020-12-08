@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class platypus_spawner : MonoBehaviour
 {
-    private int rand;
+    public int rand;
+    
     public Sprite[] Sprite_Pic;
     // Start is called before the first frame update
     void Start()
     {
         Change();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetMouseButtonDown(0));{
-            Change();
-        }
     }
 
     void Change(){
