@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+[System.Serializable]
 public class RandomColor : MonoBehaviour
 {
-    [SerializeField]
     public Color[] ColorBank;
     public bool sprite;
     public bool mesh;
+    public Color color;
 
     // Start is called before the first frame update
     void Start()
@@ -19,16 +20,11 @@ public class RandomColor : MonoBehaviour
         if(mesh){
             MeshRenderer m = GetComponent<MeshRenderer>();
             m.material.color = ColorBank[Num];
+            color = ColorBank[Num];
         }
         if(sprite){
             SpriteRenderer s = GetComponent<SpriteRenderer>();
             s.color = ColorBank[Num];
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    
     }
 }
