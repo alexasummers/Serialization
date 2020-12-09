@@ -6,7 +6,6 @@ public class GameSave : MonoBehaviour
 {
     public GameObject player;
     public Color color;
-    const string Key = "my_stored_color";
 
     // Start is called before the first frame update
     void Start()
@@ -58,13 +57,12 @@ public class GameSave : MonoBehaviour
 
     void SetColor()
     {
-        PlayerPrefs.SetString(Key, ColorUtility.ToHtmlStringRGBA(color));
-        Debug.Log(RandomColor.color);
+        PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGBA(Material.color));
     }
 
     public Color GetColor()
     {
-        var storedColorAsString = "#" + PlayerPrefs.GetString(Key);
+        var storedColorAsString = "#" + PlayerPrefs.GetString("StoredColor");
         Color result;
         ColorUtility.TryParseHtmlString(storedColorAsString, out result);
         return result;
