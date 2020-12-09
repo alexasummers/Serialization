@@ -10,25 +10,25 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.RightArrow)) {
-            Vector 2 position - transform.position;
+            Vector2 position = transform.position;
             position.x += speed;
             transform.position = position;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow)) {
-            Vector 2 position - transform.position;
+            Vector2 position = transform.position;
             position.x -= speed;
             transform.position = position;
         }
 
         if (Input.GetKey(KeyCode.UpArrow)) {
-            Vector 2 position - transform.position;
+            Vector2 position = transform.position;
             position.y += speed;
             transform.position = position;
         }
 
         if (Input.GetKey(KeyCode.DownArrow)) {
-            Vector 2 position - transform.position;
+            Vector2 position = transform.position;
             position.y -= speed;
             transform.position = position;
         }
