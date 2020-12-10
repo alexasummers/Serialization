@@ -11,7 +11,6 @@ public class GameSave : MonoBehaviour
     void Start()
     {
         RestoreGame();
-        GetColor();
     }
 
     void RestoreGame()
@@ -29,6 +28,11 @@ public class GameSave : MonoBehaviour
                 player.transform.position = position;
             }
         }
+
+        string storedColorAsString = "#" + PlayerPrefs.GetString("StoredColor");
+        Color result;
+        ColorUtility.TryParseHtmlString(storedColorAsString, out result);
+        player.GetComponent<MeshRenderer>().material.color = result;
     }
 
     // Update is called once per frame
@@ -37,7 +41,6 @@ public class GameSave : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             SaveGame();
-            SetColor();
         }
     }
 
@@ -52,19 +55,8 @@ public class GameSave : MonoBehaviour
         Debug.Log (json);
         PlayerPrefs.SetString("PlayerLocation", json);
 
+        Color gameobj = player.GetComponent<MeshRenderer>().material.color;
+        PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGBA(gameobj)); // PlayerPrefs sends the information to the next scene
         
-    }
-
-    void SetColor()
-    {
-        PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGBA(color));
-    }
-
-    public Color GetColor()
-    {
-        var storedColorAsString = "#" + PlayerPrefs.GetString("StoredColor");
-        Color result;
-        ColorUtility.TryParseHtmlString(storedColorAsString, out result);
-        return result;
     }
 }
