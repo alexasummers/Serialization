@@ -57,7 +57,7 @@ public class GameSave : MonoBehaviour
 
     void SetColor()
     {
-        PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGBA(Material.color));
+        PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGBA(color));
     }
 
     public Color GetColor()
