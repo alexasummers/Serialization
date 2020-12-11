@@ -7,9 +7,6 @@ using System.IO;
 public class RandomColor : MonoBehaviour
 {
     public Color[] ColorBank;
-    public bool sprite;
-    public bool mesh;
-    public string colorString;
 
     // Start is called before the first frame update
     void Start()
