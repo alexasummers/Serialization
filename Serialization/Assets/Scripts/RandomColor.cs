@@ -16,14 +16,7 @@ public class RandomColor : MonoBehaviour
     {
 
     int Num = Random.Range(0, ColorBank.Length);
-
-        if(mesh){
             MeshRenderer m = GetComponent<MeshRenderer>();
             m.material.color = ColorBank[Num];
-        }
-        if(sprite){
-            SpriteRenderer s = GetComponent<SpriteRenderer>();
-            s.color = ColorBank[Num];
-        }
     }
 }
