@@ -17,3 +17,6 @@ public class Example1 : MonoBehaviour
     public static int publicStaticInt = 234;
 
 }
+
+
+
