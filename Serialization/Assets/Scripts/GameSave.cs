@@ -7,7 +7,6 @@ public class GameSave : MonoBehaviour
     public GameObject player;
     public Color color;
 
-    // Start is called before the first frame update
     void Start()
     {
         RestoreGame();
@@ -21,10 +20,9 @@ public class GameSave : MonoBehaviour
             SavePosition s = JsonUtility.FromJson<SavePosition>(p);
             if (s != null)
             {
-                Vector3 position = new Vector3();
+                Vector2 position = new Vector2();
                 position.x = s.x;
                 position.y = s.y;
-                position.z = s.z;
                 player.transform.position = position;
             }
         }
@@ -49,7 +47,6 @@ public class GameSave : MonoBehaviour
         SavePosition s = new SavePosition();
         s.x = player.transform.position.x;
         s.y = player.transform.position.y;
-        s.z = player.transform.position.z;
 
         string json = JsonUtility.ToJson(s);
         Debug.Log (json);
