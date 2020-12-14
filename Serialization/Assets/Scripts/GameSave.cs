@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameSave : MonoBehaviour
 {
     public GameObject player;
+    private Color result;
 
     void Start()
     {
@@ -25,14 +26,11 @@ public class GameSave : MonoBehaviour
                 player.transform.position = position;
             }
         }
-
         string storedColorAsString = "#" + PlayerPrefs.GetString("StoredColor");
-        Color result;
         ColorUtility.TryParseHtmlString(storedColorAsString, out result);
         player.GetComponent<MeshRenderer>().material.color = result;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.S))
@@ -52,7 +50,6 @@ public class GameSave : MonoBehaviour
         PlayerPrefs.SetString("PlayerLocation", json);
 
         Color gameobj = player.GetComponent<MeshRenderer>().material.color;
-        PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGB(gameobj)); // PlayerPrefs sends the information to the next scene
-        
+        PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGBA(gameobj)); // PlayerPrefs sends the information to the next scene        
     }
 }
