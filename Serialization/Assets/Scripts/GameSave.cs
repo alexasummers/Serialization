@@ -5,7 +5,6 @@ using UnityEngine;
 public class GameSave : MonoBehaviour
 {
     public GameObject player;
-    public Color color;
 
     void Start()
     {
@@ -53,7 +52,7 @@ public class GameSave : MonoBehaviour
         PlayerPrefs.SetString("PlayerLocation", json);
 
         Color gameobj = player.GetComponent<MeshRenderer>().material.color;
-        PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGBA(gameobj)); // PlayerPrefs sends the information to the next scene
+        PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGB(gameobj)); // PlayerPrefs sends the information to the next scene
         
     }
 }
