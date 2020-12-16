@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameSave : MonoBehaviour
 {
     public GameObject player;
-    private Color result;
+    public Color result;
 
     void Start()
     {
@@ -29,6 +29,7 @@ public class GameSave : MonoBehaviour
         string storedColorAsString = "#" + PlayerPrefs.GetString("StoredColor");
         ColorUtility.TryParseHtmlString(storedColorAsString, out result);
         player.GetComponent<MeshRenderer>().material.color = result;
+        // player.GetComponent<MeshRenderer>().material.SetColor("_Color", result);
     }
 
     void Update()
