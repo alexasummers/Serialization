@@ -14,6 +14,12 @@ public class GameSave : MonoBehaviour
 
     void RestoreGame()
     {
+
+        string storedColorAsString = "#" + PlayerPrefs.GetString("StoredColor");
+        ColorUtility.TryParseHtmlString(storedColorAsString, out result);
+        player.GetComponent<MeshRenderer>().material.color = result;
+
+        
         string p = PlayerPrefs.GetString("PlayerLocation");
         if (p != null && p.Length > 0)
         {
@@ -26,9 +32,6 @@ public class GameSave : MonoBehaviour
                 player.transform.position = position;
             }
         }
-        string storedColorAsString = "#" + PlayerPrefs.GetString("StoredColor");
-        ColorUtility.TryParseHtmlString(storedColorAsString, out result);
-        player.GetComponent<MeshRenderer>().material.color = result;
         // player.GetComponent<MeshRenderer>().material.SetColor("_Color", result);
     }
 
