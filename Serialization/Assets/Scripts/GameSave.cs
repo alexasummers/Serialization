@@ -14,11 +14,11 @@ public class GameSave : MonoBehaviour
 
     void RestoreGame()
     {
-        
+        Debug.Log(PlayerPrefs.GetString("StoredColor")); //kosher
         string storedColorAsString = "#" + PlayerPrefs.GetString("StoredColor");
-        Debug.Log("This is storedColorAsString: " + storedColorAsString);
-        ColorUtility.TryParseHtmlString(storedColorAsString, out result);
-        Debug.Log("This is result: " + result);
+        Debug.Log("This is storedColorAsString: " + storedColorAsString); //kosher
+        ColorUtility.TryParseHtmlString(storedColorAsString, out result); //kosher
+        Debug.Log("This is result: " + result); //kosher
         player.GetComponent<MeshRenderer>().material.color = Color.blue;
 
         
@@ -45,14 +45,15 @@ public class GameSave : MonoBehaviour
         }
     }
 
-    void SaveGame()
+    void SaveGame() //debugged
     {
 
         Color gameobj = player.GetComponent<MeshRenderer>().material.color;
         Debug.Log("This is gameobj before string: " + gameobj); //kosher
-        PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGBA(gameobj)); // PlayerPrefs sends the information to the next scene 
+        PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGBA(gameobj)); // kosher 
         Debug.Log("This is gameobj: " + gameobj); //kosher
-        
+        Debug.Log("This is storedColor: " + ColorUtility.ToHtmlStringRGBA(gameobj)); //kosher
+
         SavePosition s = new SavePosition();
         s.x = player.transform.position.x;
         s.y = player.transform.position.y;
