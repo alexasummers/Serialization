@@ -14,10 +14,12 @@ public class GameSave : MonoBehaviour
 
     void RestoreGame()
     {
-
+        
         string storedColorAsString = "#" + PlayerPrefs.GetString("StoredColor");
+        Debug.Log("This is storedColorAsString: " + storedColorAsString);
         ColorUtility.TryParseHtmlString(storedColorAsString, out result);
-        player.GetComponent<MeshRenderer>().material.color = result;
+        Debug.Log("This is result: " + result);
+        player.GetComponent<MeshRenderer>().material.color = Color.blue;
 
         
         string p = PlayerPrefs.GetString("PlayerLocation");
@@ -48,6 +50,7 @@ public class GameSave : MonoBehaviour
 
         Color gameobj = player.GetComponent<MeshRenderer>().material.color;
         PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGBA(gameobj)); // PlayerPrefs sends the information to the next scene 
+        Debug.Log("This is gameobj: " + gameobj);
         
         SavePosition s = new SavePosition();
         s.x = player.transform.position.x;
