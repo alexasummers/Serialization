@@ -45,6 +45,10 @@ public class GameSave : MonoBehaviour
 
     void SaveGame()
     {
+
+        Color gameobj = player.GetComponent<MeshRenderer>().material.color;
+        PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGBA(gameobj)); // PlayerPrefs sends the information to the next scene 
+        
         SavePosition s = new SavePosition();
         s.x = player.transform.position.x;
         s.y = player.transform.position.y;
@@ -53,7 +57,6 @@ public class GameSave : MonoBehaviour
         Debug.Log (json);
         PlayerPrefs.SetString("PlayerLocation", json);
 
-        Color gameobj = player.GetComponent<MeshRenderer>().material.color;
-        PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGBA(gameobj)); // PlayerPrefs sends the information to the next scene        
+               
     }
 }
