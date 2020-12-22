@@ -49,8 +49,9 @@ public class GameSave : MonoBehaviour
     {
 
         Color gameobj = player.GetComponent<MeshRenderer>().material.color;
+        Debug.Log("This is gameobj before string: " + gameobj); //kosher
         PlayerPrefs.SetString("StoredColor", ColorUtility.ToHtmlStringRGBA(gameobj)); // PlayerPrefs sends the information to the next scene 
-        Debug.Log("This is gameobj: " + gameobj);
+        Debug.Log("This is gameobj: " + gameobj); //kosher
         
         SavePosition s = new SavePosition();
         s.x = player.transform.position.x;
