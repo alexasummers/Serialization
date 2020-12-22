@@ -14,12 +14,25 @@ public class GameSave : MonoBehaviour
 
     void RestoreGame()
     {
-        Debug.Log(PlayerPrefs.GetString("StoredColor")); //kosher
+        Debug.Log(PlayerPrefs.GetString("StoredColor"));
         string storedColorAsString = "#" + PlayerPrefs.GetString("StoredColor");
-        Debug.Log("This is storedColorAsString: " + storedColorAsString); //kosher
-        ColorUtility.TryParseHtmlString(storedColorAsString, out result); //kosher
-        Debug.Log("This is result: " + result); //kosher
-        player.GetComponent<MeshRenderer>().material.color = Color.blue;
+        Debug.Log("This is storedColorAsString: " + storedColorAsString);
+        ColorUtility.TryParseHtmlString(storedColorAsString, out result);
+        Debug.Log("This is result: " + result);
+        player.GetComponent<MeshRenderer>().material.color = result;
+
+        // Debug.Log(PlayerPrefs.GetString("StoredColor")); //kosher
+        // string storedColorAsString = "#" + PlayerPrefs.GetString("StoredColor");
+        // if (storedColorAsString != null && storedColorAsString.Length > 0)
+        // {
+        // // Debug.Log("This is storedColorAsString: " + storedColorAsString); //kosher
+        // ColorUtility.TryParseHtmlString(storedColorAsString, out result); //kosher
+        //     if (result != null){
+        //           player.GetComponent<MeshRenderer>().material.color = result;
+        //         //       Debug.Log("This is result: " + result); //kosher
+        //           // player.GetComponent<MeshRenderer>().material.color = Color.blue; 
+        //     }
+        // }
 
         
         string p = PlayerPrefs.GetString("PlayerLocation");
