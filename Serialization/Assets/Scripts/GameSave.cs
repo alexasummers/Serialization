@@ -19,7 +19,7 @@ public class GameSave : MonoBehaviour
         Debug.Log("This is storedColorAsString: " + storedColorAsString);
         ColorUtility.TryParseHtmlString(storedColorAsString, out result);
         Debug.Log("This is result: " + result);
-        player.GetComponent<MeshRenderer>().material.color = result;
+        player.GetComponent<MeshRenderer>().material.color = Color.color;
 
         // Debug.Log(PlayerPrefs.GetString("StoredColor")); //kosher
         // string storedColorAsString = "#" + PlayerPrefs.GetString("StoredColor");
